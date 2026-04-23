@@ -1,8 +1,9 @@
 from django.db import models
+import uuid
 from users.models import User
 
 class Flat(models.Model):
-    id = models.CharField(max_length=255, primary_key=True, unique=True)
+    id = models.CharField(max_length=255, default=uuid.uuid4, primary_key=True, unique=True)
     square_feet = models.IntegerField()
     total_bedrooms = models.IntegerField()
     total_rooms = models.IntegerField()
